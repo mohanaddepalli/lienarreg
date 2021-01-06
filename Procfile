@@ -1,1 +1,1 @@
-web: gunicorn ApiTest:predict
+web: gunicorn app:app
