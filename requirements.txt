@@ -1,6 +1,11 @@
 Flask
-numpy
 pickle-mixin
 gunicorn
-requests==2.22.0
-scikit-learn==0.21.2
+requests
+scikit-learn
+numpy
+scipy
+joblib
+threadpoolctl
+cython
+pandas
