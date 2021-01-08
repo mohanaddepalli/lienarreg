@@ -9,8 +9,8 @@ model = pickle.load(open('model.pkl','rb'))
 def predict():
     # Get the data from the POST request.
     data = request.get_json(force=True)
-    logging.info(data)
-    logging.info(model)
+    logging.warning(data)
+    logging.warning(model)
     # Make prediction using model loaded from disk as per the data.
     prediction = model.predict([[np.array(data['exp'])]])
     # Take the first value of prediction
