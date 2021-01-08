@@ -12,14 +12,8 @@ def predict():
     logging.error(str(data))
     logging.error(str(model))
     # Make prediction using model loaded from disk as per the data.
-    try:
-        prediction = model.predict([[np.array(data['exp'])]])
-    except Exception as e:
-            print('the exception is ' + str(e))
-            logging.error('the exception is ' + str(e))
-    # Take the first value of prediction
-    output = prediction[0]
-    return jsonify(output)
+    
+    return jsonify(1)
     
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
