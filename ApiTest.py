@@ -1,6 +1,7 @@
 import numpy as np
 from flask import Flask, request, jsonify
 import pickle
+import logging
 app = Flask(__name__)
 # Load the model
 model = pickle.load(open('model.pkl','rb'))
@@ -8,10 +9,10 @@ model = pickle.load(open('model.pkl','rb'))
 def predict():
     # Get the data from the POST request.
     data = request.get_json(force=True)
-    print("Request:")
+    logging.info(data)
+    logging.info(model)
     # Make prediction using model loaded from disk as per the data.
     prediction = model.predict([[np.array(data['exp'])]])
-    print(prediction)
     # Take the first value of prediction
     output = prediction[0]
     return jsonify(output)
