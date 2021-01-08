@@ -6,7 +6,7 @@ app = Flask(__name__)
 # Load the model
 model = pickle.load(open('model.pkl','rb'))
 @app.route('/api',methods=['POST'])
-def predict():
+def test():
     # Get the data from the POST request.
     data = request.get_json(force=True)
     logging.error(str(data))
