@@ -9,11 +9,11 @@ model = pickle.load(open('model.pkl','rb'))
 def test():
     # Get the data from the POST request.
     data = request.get_json(force=True)
-    logging.error(str(data))
-    logging.error(str(model))
     # Make prediction using model loaded from disk as per the data.
-    
-    return jsonify(1)
+    prediction = model.predict([[np.array(data['exp'])]])
+    # Take the first value of prediction
+    output = prediction[0]
+    return jsonify(output)
     
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
